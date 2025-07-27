@@ -1,0 +1,60 @@
+## Основные исключения ##
+**/bin/
+**/obj/
+packages
+**/bin/
+**/obj/
+**/[Bb]in/
+**/[Oo]bj/
+**/[Dd]ebug/
+**/[Rr]elease/
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.swp
+
+## Файлы проектов ##
+*.pyc
+*.pdb
+*.exe
+*.dll
+*.nupkg
+
+## Настройки окружения ##
+appsettings.Development.json
+appsettings.Local.json
+.env
+*.secrets
+
+## Базы данных ##
+*.mdf
+*.ldf
+__EFMigrationsHistory/
+
+## Сборки ##
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+
+## Специфичное для IDE ##
+.idea/
+*.sln.iml
+
+## Docker ##
+docker-compose.override.yml
+
+## NuGet ##
+packages/
+.nuget/
+
+## Тестовые результаты ##
+TestResults/
+*.trx
+
+## Временные файлы ##
+*.tmp
+temp/
