@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: feeddb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - "5050:80"
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: feed_app
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=postgres_db;Port=5432;Database=feeddb;Username=postgres;Password=12345"
+      ASPNETCORE_ENVIRONMENT: "Development"  # Добавлено для Swagger
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
