@@ -1,5 +1,3 @@
-//using Swashbuckle.AspNetCore;
-
 using DataAccess;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
